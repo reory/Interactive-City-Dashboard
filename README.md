@@ -3,6 +3,25 @@
   <em>Explore world cities with an interactive map, charts, and live data</em>
 </p>
 
+<p align="center">
+
+  <!-- Python version -->
+  <img src="https://img.shields.io/badge/Python-3.11-blue" alt="Python 3.11">
+
+  <!-- License -->
+  <img src="https://img.shields.io/badge/License-MIT-green" alt="MIT License">
+
+  <!-- Repo size -->
+  <img src="https://img.shields.io/github/repo-size/reory/Interactive-City-Dashboard" alt="Repo Size">
+
+  <!-- Last commit -->
+  <img src="https://img.shields.io/github/last-commit/reory/Interactive-City-Dashboard" alt="Last Commit">
+
+  <!-- Stars -->
+  <img src="https://img.shields.io/github/stars/reory/Interactive-City-Dashboard?style=social" alt="GitHub Stars">
+
+</p>
+
 # Interactive City Map + Population Dashboard
 
 - A fully interactive Dash application that visualises world cities with:
