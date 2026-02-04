@@ -1,7 +1,11 @@
+<p align="center">
+  <strong>🌍 Interactive City Dashboard</strong><br>
+  <em>Explore world cities with an interactive map, charts, and live data</em>
+</p>
+
 # Interactive City Map + Population Dashboard
 
 - A fully interactive Dash application that visualises world cities with:
-
 - A dynamic Mapbox map
 - A responsive population bar chart
 - A collapsible Wikipedia-powered city information panel
@@ -47,6 +51,32 @@ This project demonstrates professional-grade Dash engineering, clean separation 
 - Layout tests
 - Callback unit tests
 - Integration tests using Dash’s callback map
+
+---
+
+## Demo
+
+### 🎥 Video Preview
+Click below to watch the 1 minute demo:
+
+[▶️ View Demo Video](Demo.mp4)
+
+---
+
+## Screenshots
+
+### Dashboard (Light Mode)
+![Dashboard Light](screenshots/dashboard.png)
+
+### Dashboard (Dark Mode)
+![Dashboard Dark](screenshots/dashboard-darkmode.png)
+
+### City Views
+![City 1](screenshots/cities%201.png)
+![City 2](screenshots/cities%202.png)
+![City 3](screenshots/cities%203.png)
+![City 4](screenshots/cities%204.png)
+![City 5](screenshots/cities%205.png)
 
 ---
 
