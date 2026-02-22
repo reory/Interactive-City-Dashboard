@@ -201,3 +201,5 @@ For major changes, open an issue first to discuss what you’d like to change.
 
 ## License
 MIT License — free to use, modify, and distribute.
+
+**Built by Roy Peters** [Click here for contact details 😁](https://www.linkedin.com/in/roy-p-74980b382/)
