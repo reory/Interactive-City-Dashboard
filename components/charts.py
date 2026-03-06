@@ -2,6 +2,7 @@ import plotly.express as px
 from data.populations import df, populations
 
 def build_chart(selected_city, theme):
+    """Generate a chart based on the chosen city and theme."""
 
     # No city is selected, show the full dataset.
     if selected_city is None:

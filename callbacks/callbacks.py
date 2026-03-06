@@ -37,6 +37,7 @@ def update_dashboard(dropdown_value, theme_choice):
 
 def theme_page(theme_choice):
     """Return page-level style based on theme."""
+
     theme = LIGHT_THEME if theme_choice == "light" else DARK_THEME
     return {
         "background": theme["wrapper_bg"],
@@ -49,11 +50,13 @@ def theme_page(theme_choice):
 
 def toggle_wiki(n):
     """Toggle the wiki box on/off."""
+
     if n and n % 2 == 1:
         return {"display": "block"}, "▾ City Information"
     return {"display": "none"}, "▸ City Information"
 
 def sync_dropdown_with_map(clickData):
+    """Uodate the drop-down selection based on the map click events."""
     
     if clickData and clickData.get("points"):
         point = clickData["points"][0]
@@ -67,6 +70,8 @@ def update_wiki(selected_city):
 # ---------- DASH WIRING ONLY ----------
 
 def register_callbacks(app):
+    """Attach all dash callback functions to the app instance."""
+
     app.callback(
         Output("city-selector", "options"),
         Input("continent-selector", "value")

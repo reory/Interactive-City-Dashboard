@@ -3,6 +3,7 @@ from data.populations import populations
 from services.wiki import get_wiki_summary
 
 def build_details(selected_city):
+    """Create a details panel for the chosen city."""
 
     if not selected_city or selected_city not in populations:
         return html.Div("Information on a chosen city will appear here.")

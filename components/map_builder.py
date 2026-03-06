@@ -4,6 +4,8 @@ from data.populations import df, populations
 
 # Build map with markers (using scatter_mapbox)
 def build_map(selected_city, theme):
+    """Construct the map based on city selection view."""
+    
     map_fig = px.scatter_mapbox(
         df,
         lat="lat",
