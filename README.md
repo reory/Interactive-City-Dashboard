@@ -22,7 +22,7 @@
 
 </p>
 
-# Interactive City Map + Population Dashboard
+# 🗺️ Interactive City Map + Population Dashboard
 
 - A fully interactive Dash application that visualises world cities with:
 - A dynamic Mapbox map
@@ -36,7 +36,7 @@ This project demonstrates professional-grade Dash engineering, clean separation 
 
 ---
 
-## Features
+## 🚀Features
 
 ### Interactive Map
 - Click any city to update the dashboard
@@ -82,7 +82,8 @@ Click below to watch the 1 minute demo:
 
 ---
 
-## Screenshots
+<details>
+   <summary>📸Screenshots</summary>
 
 ### Dashboard (Light Mode)
 ![Dashboard Light](screenshots/dashboard.png)
@@ -97,9 +98,11 @@ Click below to watch the 1 minute demo:
 ![City 4](screenshots/cities%204.png)
 ![City 5](screenshots/cities%205.png)
 
+</details>
+
 ---
 
-## Project Structure
+## ⚒️ Project Structure
 
 ```text
 project_flask_api/
@@ -129,7 +132,10 @@ project_flask_api/
     ├── test_callbacks.py
     └── test_integration_app.py
 ```
-## Installation
+
+---
+
+## 💻 Installation
 
 ```bash
 git clone https://github.com/reory/Interactive-City-Dashboard.git
@@ -145,7 +151,7 @@ python api.py
 Then open:
 http://127.0.0.1:8050
 
-## Running Tests
+## 🧪 Running Tests
 
 ```bash
 pytest -q
@@ -158,7 +164,9 @@ pytest -q
 
 - Integration tests using Dash’s callback registry
 
-## Architecture Principles
+---
+
+## 🏢 Architecture Principles
 This project follows:
 
 Pure functions
@@ -181,7 +189,9 @@ Predictable state
 Test-driven structure
 - Every major part of the app is validated.
 
-## Deployment
+---
+
+## 💻 Deployment
 This app can be deployed to:
 
 - Heroku
@@ -195,11 +205,17 @@ This app can be deployed to:
 server = app.server
 ```
 
-## Contributing
+---
+
+## 🤝 Contributing
 Pull requests are welcome.
 For major changes, open an issue first to discuss what you’d like to change.
 
-## License
+---
+
+## 📃 License
 MIT License — free to use, modify, and distribute.
+
+---
 
 **Built by Roy Peters** [Click here for contact details 😁](https://www.linkedin.com/in/roy-p-74980b382/)
