@@ -1,5 +1,4 @@
 import plotly.express as px
-import plotly.graph_objects as go
 from data.populations import df, populations
 
 # Build map with markers (using scatter_mapbox)

@@ -1,5 +1,4 @@
 import pytest
-from unittest.mock import patch
 from dash import Dash
 from project_flask_api.api import app as dash_app
 
