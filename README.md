@@ -104,7 +104,7 @@ Click below to watch the 1 minute demo:
 
 ## ⚒️ Project Structure
 
-```text
+```python
 project_flask_api/
 │
 ├── api.py                     # Dash app entrypoint
@@ -127,7 +127,7 @@ project_flask_api/
 ├── callbacks/
 │   └── callbacks.py           # Pure callback logic + register_callbacks()
 │
-└── tests/
+└── tests/                     # Pytest suite
     ├── test_layout.py
     ├── test_callbacks.py
     └── test_integration_app.py
