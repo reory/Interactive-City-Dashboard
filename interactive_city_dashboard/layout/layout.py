@@ -1,7 +1,8 @@
-from dash import html, dcc
+from dash import dcc, html
+
 from interactive_city_dashboard.data.populations import populations
 
-DEFAULT_CITY = list(populations.keys())[0]  # First city in the list
+DEFAULT_CITY = next(iter(populations.keys()))  # First city in the list
 
 
 def serve_layout():
@@ -45,7 +46,7 @@ def serve_layout():
             dcc.Dropdown(
                 id="city-selector",
                 value=DEFAULT_CITY,
-                options=[{"label": c, "value": c} for c in populations.keys()],
+                options=[{"label": c, "value": c} for c in populations],
                 placeholder="Select a city...",
                 persistence=True,
                 persistence_type="local",

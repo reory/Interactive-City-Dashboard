@@ -4,6 +4,8 @@ from interactive_city_dashboard.layout.layout import serve_layout
 
 
 def test_layout_root_structure():
+    """Verify the dashboard root layout is constructed correctly."""
+
     layout = serve_layout()
 
     # Top-level wrapper
@@ -23,6 +25,8 @@ def test_layout_root_structure():
 
 
 def test_layout_selector():
+    """Verify the layout selector is present in the dashboard."""
+
     layout = serve_layout()
 
     selector_wrapper = layout.children[4]
@@ -35,6 +39,8 @@ def test_layout_selector():
 
 
 def test_dynamic_containers_exist():
+    """Verify the layout selector is present in the dashboard."""
+
     layout = serve_layout()
 
     layout_container = layout.children[5]

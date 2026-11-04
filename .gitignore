@@ -5,6 +5,7 @@ __pycache__/
 *.pyd
 *.pdb
 *.pkl
+*_cache/
 
 # Byte-compiled / optimized / DLL files
 *.so

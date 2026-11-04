@@ -1,4 +1,5 @@
 from dash import html
+
 from interactive_city_dashboard.data.populations import populations
 from interactive_city_dashboard.services.wiki import get_wiki_summary
 

@@ -5,6 +5,7 @@ from interactive_city_dashboard.services import wiki
 
 def test_safe_get_success():
     """safe_get should call requests.get with correct params and headers."""
+
     with patch("interactive_city_dashboard.services.wiki.requests.get") as mock_get:
         mock_response = MagicMock()
         mock_get.return_value = mock_response
@@ -22,6 +23,7 @@ def test_safe_get_success():
 
 def test_safe_get_failure():
     """safe_get should return None on exception."""
+
     with patch(
         "interactive_city_dashboard.services.wiki.requests.get",
         side_effect=Exception("boom"),
@@ -32,6 +34,7 @@ def test_safe_get_failure():
 
 def test_get_wiki_summary_title_with_spaces():
     """Ensure titles with spaces are passed correctly to the API."""
+
     with patch("interactive_city_dashboard.services.wiki.safe_get") as mock_safe:
         mock_response = MagicMock()
         mock_response.json.return_value = {

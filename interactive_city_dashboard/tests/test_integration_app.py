@@ -35,6 +35,8 @@ def test_callbacks_registered():
 
 
 def test_update_dashboard_integration():
+    """Verify the dashboard updates correctly through the full integration workflow."""
+
     app = Dash(__name__)
     app.layout = serve_layout()
     register_callbacks(app)

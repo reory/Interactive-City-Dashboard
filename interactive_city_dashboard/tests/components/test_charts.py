@@ -1,15 +1,20 @@
 import pytest
+from plotly.graph_objs import Figure
+
 from interactive_city_dashboard.components.charts import build_chart
 from interactive_city_dashboard.data.populations import df, populations
-from plotly.graph_objs import Figure
 
 
 @pytest.fixture
 def theme():
+    """Provide a reusable dark theme configuration for tests."""
+
     return {"background": "#000000", "panel": "#111111", "text": "#ffffff"}
 
 
 def test_build_chart_no_city(theme):
+    """Ensure no population chart is generated when no city is selected."""
+
     fig = build_chart(None, theme)
 
     # Should return a plotly figure.
@@ -32,7 +37,9 @@ def test_build_chart_no_city(theme):
 
 
 def test_build_chart_with_city(theme):
-    selected = list(populations.keys())[0]
+    """Verify a population chart is created for a valid city."""
+
+    selected = next(iter(populations.keys()))
     value = populations[selected]["pop"]
 
     fig = build_chart(selected, theme)

@@ -14,14 +14,16 @@ from interactive_city_dashboard.callbacks.callbacks import (
 
 
 def test_update_city_dropdown_all():
+    """Verify all cities are returned when no filter is selected."""
 
     result = update_city_dropdown(None)
-    expected = [{"label": c, "value": c} for c in populations.keys()]
+    expected = [{"label": c, "value": c} for c in populations]
 
     assert result == expected
 
 
 def test_update_city_dropdown_filtered():
+    """Ensure the dropdown only contains cities matching the filter."""
 
     result = update_city_dropdown("Europe")
     expected = [
@@ -34,12 +36,15 @@ def test_update_city_dropdown_filtered():
 
 
 def test_switch_layout():
+    """Verify the dashboard updates to the chosen layout mode."""
 
     result = switch_layout("side")
     assert result == "dashboard layout-side"
 
 
 def test_update_dashboard_valid(mocker):
+    """Verify the dashboard updates correctly for a valid city selection."""
+
     mock_map = mocker.patch(
         "interactive_city_dashboard.callbacks.callbacks.build_map",
         return_value="MAP",
@@ -62,12 +67,14 @@ def test_update_dashboard_valid(mocker):
 
 
 def test_update_dashboard_no_city():
+    """Ensure the dashboard handles an empty city selection gracefully."""
 
     result = update_dashboard(None, "light")
     assert result == (no_update, no_update)
 
 
 def test_theme_page_dark():
+    """Verify the dark theme is applied correctly to the page."""
 
     result = theme_page("dark")
 
@@ -76,6 +83,7 @@ def test_theme_page_dark():
 
 
 def test_toggle_wiki_open():
+    """Verify the city information panel can be expanded."""
 
     style, label = toggle_wiki(1)
     assert style == {"display": "block"}
@@ -83,6 +91,7 @@ def test_toggle_wiki_open():
 
 
 def test_toggle_wiki_closed():
+    """Ensure the city information panel closes correctly."""
 
     style, label = toggle_wiki(2)
     assert style == {"display": "none"}
@@ -90,6 +99,7 @@ def test_toggle_wiki_closed():
 
 
 def test_sync_dropdown_with_map_valid():
+    """Ensure the city dropdown reflects a valid map selection."""
 
     clickData = {"points": [{"text": "Berlin"}]}
     result = sync_dropdown_with_map(clickData)
@@ -97,13 +107,15 @@ def test_sync_dropdown_with_map_valid():
 
 
 def test_sync_dropdown_with_map_hovertext():
+    """Verify hover text values update the city dropdown correctly."""
 
     clickData = {"points": [{"hovertext": "Rome"}]}
     result = sync_dropdown_with_map(clickData)
     assert result == "Rome"
 
 
-def test_sync_dropdwon_with_map_no_points():
+def test_sync_dropdownn_with_map_no_points():
+    """Ensure no dropdown update occurs when the map selection contains no points."""
 
     result = sync_dropdown_with_map(None)
     assert result is no_update

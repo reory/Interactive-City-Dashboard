@@ -1,15 +1,17 @@
-from dash import Output, Input, no_update
-from interactive_city_dashboard.data.populations import populations
+from dash import Input, Output, no_update
+
 from interactive_city_dashboard.components.charts import build_chart
 from interactive_city_dashboard.components.details_panel import build_details
 from interactive_city_dashboard.components.map_builder import build_map
-from interactive_city_dashboard.components.theme import LIGHT_THEME, DARK_THEME
+from interactive_city_dashboard.components.theme import DARK_THEME, LIGHT_THEME
+from interactive_city_dashboard.data.populations import populations
 
 
 def update_city_dropdown(continent):
     """Return city dropdown options based on selected continent."""
+
     if continent is None:
-        return [{"label": c, "value": c} for c in populations.keys()]
+        return [{"label": c, "value": c} for c in populations]
 
     return [
         {"label": city, "value": city}
@@ -19,6 +21,8 @@ def update_city_dropdown(continent):
 
 
 def switch_layout(layout_choice):
+    """Apply the selected dashboard layout."""
+
     return f"dashboard layout-{layout_choice}"
 
 
@@ -60,7 +64,7 @@ def toggle_wiki(n):
 
 
 def sync_dropdown_with_map(clickData):
-    """Uodate the drop-down selection based on the map click events."""
+    """Update the drop-down selection based on the map click events."""
 
     if clickData and clickData.get("points"):
         point = clickData["points"][0]
@@ -70,6 +74,8 @@ def sync_dropdown_with_map(clickData):
 
 
 def update_wiki(selected_city):
+    """Update the Wikipedia summary for the selected city."""
+
     return build_details(selected_city)
 
 

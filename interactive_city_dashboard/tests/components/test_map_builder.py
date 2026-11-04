@@ -1,7 +1,8 @@
 import pytest
+from plotly.graph_objs import Figure
+
 from interactive_city_dashboard.components.map_builder import build_map
 from interactive_city_dashboard.data.populations import populations
-from plotly.graph_objs import Figure
 
 
 @pytest.fixture
@@ -10,6 +11,8 @@ def theme():
 
 
 def test_build_map_no_city(theme):
+    """Ensure the map handles an empty city selection gracefully."""
+
     fig = build_map(None, theme)
 
     # Should return a plotly figure.
@@ -29,7 +32,9 @@ def test_build_map_no_city(theme):
 
 
 def test_build_map_with_city(theme):
-    selected = list(populations.keys())[0]
+    """Verify the map highlights the selected city correctly."""
+
+    selected = next(iter(populations.keys()))
     fig = build_map(selected, theme)
 
     # Should recenter on selected city.

@@ -1,12 +1,13 @@
 # Entry point of the API/dash app.
-import sys
 import os
+import sys
 
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
 from dash import Dash
-from interactive_city_dashboard.layout.layout import serve_layout
+
 from interactive_city_dashboard.callbacks.callbacks import register_callbacks
+from interactive_city_dashboard.layout.layout import serve_layout
 
 app = Dash(__name__, suppress_callback_exceptions=True)
 

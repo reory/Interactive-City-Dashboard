@@ -5,6 +5,8 @@ from interactive_city_dashboard.data.populations import populations
 
 
 def test_build_details_no_city():
+    """Ensure the city information panel handles an empty selection gracefully."""
+
     result = build_details(None)
 
     # Should return a Div
@@ -15,9 +17,10 @@ def test_build_details_no_city():
 
 
 def test_build_details_with_city(mocker):
+    """Verify the city information panel displays details for a valid city."""
 
     # Pick any valid city.
-    selected = list(populations.keys())[0]
+    selected = next(iter(populations.keys()))
     data = populations[selected]
 
     # Mock the wiki summary.

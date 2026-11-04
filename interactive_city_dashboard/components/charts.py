@@ -1,4 +1,5 @@
 import plotly.express as px
+
 from interactive_city_dashboard.data.populations import df, populations
 
 
@@ -31,7 +32,7 @@ def build_chart(selected_city, theme):
     )
 
     chart_fig.update_layout(
-        yaxis=dict(range=[0, int(value * 1.2)]),
+        yaxis={"range": [0, int(value * 1.2)]},
         paper_bgcolor=theme["background"],
         plot_bgcolor=theme["panel"],
         font_color=theme["text"],

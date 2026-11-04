@@ -22,7 +22,7 @@
 
 </p>
 
-# 🗺️ Interactive City Map + Population Dashboard
+## 🗺️ Interactive City Map + Population Dashboard
 
 - A fully interactive Dash application that visualises world cities with:
 - A dynamic Mapbox map
@@ -36,12 +36,43 @@ This project demonstrates professional-grade Dash engineering, clean separation 
 
 ---
 
+## 📑 Table of Contents
+
+- [Why This Project Exists](#-why-this-project-exists)
+- [Problem](#-problem)
+- [Solution](#-solution)
+- [Features](#-features)
+- [Demo](#-demo)
+- [Project Structure](#-project-structure)
+- [Installation](#-installation)
+- [Running the App](#running-the-app)
+- [Testing](#-testing)
+- [Architecture Principles](#-architecture-principles)
+- [Deployment](#-deployment)
+- [Roadmap Features](#️-roadmap-features)
+
+---
+
+## 🧠 Why This Project Exists
+
+This project was created to explore interactive data visualisation using Dash, Plotly, and Mapbox. The goal is to provide an engaging way to explore world cities through maps, population statistics, and live information sources while demonstrating modular application design and test-driven development.
+
+---
+
+## 🔍 Problem 
+Geographical datasets are often presented in static tables that make it difficult to explore relationships between locations, population data, and contextual information.
+
+## ✅ Solution 
+This project combines mapping, visualisation, and live information retrieval into a unified interactive dashboard, making city exploration more intuitive and engaging.
+
+---
+
 ## 🚀Features
 
 ### Interactive Map
 - Click any city to update the dashboard
 - Map auto-centres and highlights the selected city
-- Built using Plotly Mapbox
+- Built with Plotly and Mapbox integration.
 
 ### Population Chart
 - Shows population for the selected city
@@ -50,7 +81,7 @@ This project demonstrates professional-grade Dash engineering, clean separation 
 
 ### Wikipedia Summary Panel
 - Collapsible “City Information” panel
-- Fetches live summaries via a service layer
+- Fetches live city summaries through a dedicated service layer.
 - Clean separation between UI and data fetching
 
 ### Light/Dark Themes
@@ -86,12 +117,22 @@ Click below to watch the 1 minute demo:
    <summary>📸Screenshots</summary>
 
 ### Dashboard (Light Mode)
+
+- Interactive city selection on a world map.
+- Population analysis through dynamic charts.
+- Responsive dashboard layout.
 ![Dashboard Light](screenshots/dashboard.png)
 
 ### Dashboard (Dark Mode)
+
+- Interactive city selection on a world map.
+- Population analysis through dynamic charts.
+- Responsive dashboard layout with Dark Mode
 ![Dashboard Dark](screenshots/dashboard-darkmode.png)
 
 ### City Views
+
+- Different view tabs
 ![City 1](screenshots/cities%201.png)
 ![City 2](screenshots/cities%202.png)
 ![City 3](screenshots/cities%203.png)
@@ -104,7 +145,7 @@ Click below to watch the 1 minute demo:
 
 ## ⚒️ Project Structure
 
-```python
+```plaintext
 project_flask_api/
 │
 ├── api.py                     # Dash app entrypoint
@@ -140,39 +181,47 @@ project_flask_api/
 ```bash
 git clone https://github.com/reory/Interactive-City-Dashboard.git
 cd Interactive-City-Dashboard
+```
+
+### Install Dependencies
+
+```bash
 pip install -r requirements.txt
 ```
 
-## Running the App
+### Running the App
 
 ```bash
 python api.py
 ```
+
 Then open:
 http://127.0.0.1:8050
 
-## 🧪 Running Tests
+---
+
+## 🧪 Testing
+
+The test suite includes:
+
+- Layout validation tests
+- Callback unit tests
+- Integration tests
+- Dashboard behaviour verification
 
 ```bash
 pytest -q
 ```
-- The suite includes:
-
-- Layout structure validation
-
-- Callback logic tests
-
-- Integration tests using Dash’s callback registry
 
 ---
 
 ## 🏢 Architecture Principles
 This project follows:
 
-Pure functions
+Pure functions:
 - All callback logic is pure and testable.
 
-Separation of concerns
+Separation of concerns:
 - Layout = static UI
 
 - Callbacks = behaviour
@@ -183,10 +232,10 @@ Separation of concerns
 
 - Data = static datasets
 
-Predictable state
+Predictable state:
 - No hidden globals, no side effects.
 
-Test-driven structure
+Test-driven structure:
 - Every major part of the app is validated.
 
 ---
@@ -201,20 +250,21 @@ This app can be deployed to:
 - Gunicorn + Nginx
 - Expose the server object in api.py:
 
-```python
+```bash
 server = app.server
 ```
 
 ---
 
-## 🤝 Contributing
-Pull requests are welcome.
-For major changes, open an issue first to discuss what you’d like to change.
+## 🛣️ Roadmap Features
 
----
-
-## 📃 License
-MIT License — free to use, modify, and distribute.
+- [ ] Export charts as PNG
+- [ ] Export dashboard reports as PDF
+- [ ] Additional demographic datasets
+- [ ] GDP and economic indicators
+- [ ] Weather integration
+- [ ] Geographic clustering
+- [ ] Real-time city statistics APIs
 
 ---
 

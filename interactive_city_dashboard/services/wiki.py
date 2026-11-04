@@ -12,7 +12,7 @@ def safe_get(url, params):
 
     try:
         return requests.get(url, params=params, headers=HEADERS, timeout=5)
-    except Exception as e:
+    except requests.exceptions.RequestException as e:
         print("WIKI REQUEST ERROR:", e)
         return None
 
@@ -57,7 +57,7 @@ def get_wiki_summary(city_name):
             return "Could not load wikipedia summary."
         try:
             search_data = search_response.json()
-        except Exception:
+        except ValueError:
             return "Could not load Wikipedia summary"
         
         search_results = search_data.get("query", {}).get("search", [])
@@ -76,7 +76,7 @@ def get_wiki_summary(city_name):
         
         try:
             data = response.json()
-        except Exception:
+        except ValueError:
             return "Could not load Wikipeadia summary."
         
         pages = data.get("query", {}).get("pages", {})
@@ -88,5 +88,5 @@ def get_wiki_summary(city_name):
         
         return "No wikipedia summary available."
     
-    except Exception:
+    except requests.exceptions.RequestException:
         return "Could not load Wikipedia summary."
