@@ -146,7 +146,7 @@ Click below to watch the 1 minute demo:
 ## ⚒️ Project Structure
 
 ```plaintext
-project_flask_api/
+interactive_city_dashboard/
 │
 ├── api.py                     # Dash app entrypoint
 │
