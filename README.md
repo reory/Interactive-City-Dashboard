@@ -3,8 +3,8 @@
   <em>Explore world cities with an interactive map, charts, and live data</em>
 </p>
 
-![Last Commit](https://img.shields.io/github/last-commit/reory/Interactive_City_Dashboard?cacheSeconds=60)
-![Repo Size](https://img.shields.io/github/repo-size/reory/Interactive_City_Dashboard?cacheSeconds=60)
+![Last Commit](https://img.shields.io/github/last-commit/reory/interactive_city_dashboard?cacheSeconds=60)
+![Repo Size](https://img.shields.io/github/repo-size/reory/interactive_city_dashboard?cacheSeconds=60)
 ![License](https://img.shields.io/badge/License-MIT-green)
 
 ![Dash](https://img.shields.io/badge/Dash-1E88E5?style=for-the-badge)
@@ -95,6 +95,13 @@ This project combines mapping, visualisation, and live information retrieval int
 - Callback unit tests
 - Integration tests using Dash’s callback map
 
+### Export Options
+
+- Export map visualisations as PNG
+- Export charts as PNG using Plotly tools
+- High-resolution image downloads
+- Export PDF report
+
 ---
 
 ## Demo
@@ -134,6 +141,16 @@ Click below to watch the 1 minute demo:
 ![City 4](screenshots/cities%204.png)
 ![City 5](screenshots/cities%205.png)
 
+### PDF Report Export
+
+- Generate downloadable dashboard reports for the selected city.
+- Includes city demographics and geographic coordinates.
+- Embeds the current population chart and map view.
+- Incorporates Wikipedia summary information.
+- Produces presentation-ready PDF documents for sharing and archiving.
+
+![PDF report](screenshots/export_pdf.png)
+
 </details>
 
 ---
@@ -152,6 +169,7 @@ interactive_city_dashboard/
 │   └── populations.py         # City dataset
 │
 ├── services/
+│   ├── report_generator.py    # PDF report generation utilities
 │   └── wiki.py                # Wikipedia summary fetcher
 │
 ├── components/
@@ -270,11 +288,12 @@ uv run pytest
 
 ## 🛣️ Roadmap Features
 
-- [ ] Export charts as PNG
-- [ ] Export dashboard reports as PDF
+- [x] Export charts as PNG
+- [x] Export dashboard reports as PDF
 - [ ] Additional demographic datasets
 - [ ] GDP and economic indicators
 - [ ] Weather integration
+- [ ] Migrate Plotly mapbox → maplibre API
 - [ ] Geographic clustering
 - [ ] Real-time city statistics APIs
 

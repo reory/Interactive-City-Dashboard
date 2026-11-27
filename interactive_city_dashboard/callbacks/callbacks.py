@@ -1,10 +1,15 @@
-from dash import Input, Output, no_update
+from dash import Input, Output, State, dcc, no_update
+from dash.exceptions import PreventUpdate
 
 from interactive_city_dashboard.components.charts import build_chart
 from interactive_city_dashboard.components.details_panel import build_details
 from interactive_city_dashboard.components.map_builder import build_map
 from interactive_city_dashboard.components.theme import DARK_THEME, LIGHT_THEME
 from interactive_city_dashboard.data.populations import populations
+from interactive_city_dashboard.services.report_generator import (
+    generate_dashboard_report,
+)
+from interactive_city_dashboard.services.wiki import get_wiki_summary
 
 
 def update_city_dropdown(continent):
@@ -79,6 +84,58 @@ def update_wiki(selected_city):
     return build_details(selected_city)
 
 
+def export_pdf(n_clicks, selected_city, theme_choice):
+    """Export the current dashboard view as a PDF report."""
+
+    if not n_clicks:
+        raise PreventUpdate
+
+    theme = (
+        LIGHT_THEME
+        if theme_choice == "light"
+        else DARK_THEME
+    )
+
+    city_data = populations[selected_city]
+
+    chart_figure = build_chart(
+        selected_city,
+        theme,
+    )
+
+    map_figure = build_map(selected_city, theme,)
+
+    chart_png = chart_figure.to_image(
+        format="png",
+        width=1200,
+        height=800,
+    )
+
+    map_png = map_figure.to_image(
+        format="png",
+        width=1200,
+        height=800,
+    )
+
+    summary = get_wiki_summary(selected_city)
+
+    pdf_bytes = generate_dashboard_report(
+        city_name=selected_city,
+        city_data=city_data,
+        summary=summary,
+        chart_png=chart_png,
+        map_png=map_png,
+    )
+
+    return (
+        dcc.send_bytes(
+            pdf_bytes,
+            filename=f"{selected_city.lower()}_dashboard_report.pdf",
+        ),
+        "PDF report generated.",
+    )
+
+
 # ---------- DASH WIRING ONLY ----------
 
 
@@ -86,7 +143,8 @@ def register_callbacks(app):
     """Attach all dash callback functions to the app instance."""
 
     app.callback(
-        Output("city-selector", "options"), Input("continent-selector", "value")
+        Output("city-selector", "options"), 
+        Input("continent-selector", "value")
     )(update_city_dropdown)
 
     app.callback(
@@ -107,9 +165,10 @@ def register_callbacks(app):
         Input("theme-toggle", "value"),
     )(update_dashboard)
 
-    app.callback(Output("app-wrapper", "style"), Input("theme-toggle", "value"))(
-        theme_page
-    )
+    app.callback(
+        Output("app-wrapper", "style"), 
+        Input("theme-toggle", "value")
+    )(theme_page)
 
     app.callback(
         Output("wiki-container", "style"),
@@ -117,6 +176,16 @@ def register_callbacks(app):
         Input("wiki-toggle", "n_clicks"),
     )(toggle_wiki)
 
-    app.callback(Output("wiki-details", "children"), Input("city-selector", "value"))(
-        update_wiki
-    )
+    app.callback(
+        Output("wiki-details", "children"), 
+        Input("city-selector", "value")
+    )(update_wiki)
+
+    app.callback(
+        Output("pdf-download", "data"),
+        Output("export-status", "children"),
+        Input("export-pdf", "n_clicks"),
+        State("city-selector", "value"),
+        State("theme-toggle", "value"),
+        prevent_initial_call=True,
+    )(export_pdf)

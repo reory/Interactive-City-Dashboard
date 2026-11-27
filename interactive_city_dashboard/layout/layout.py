@@ -109,17 +109,58 @@ def serve_layout():
                     ),
                 ],
             ),
+            dcc.Loading(
+                id="pdf-loading",
+                type="circle",
+                children=[
+                    html.Button(
+                        " 🗒️ Export PDF Report",
+                        id="export-pdf",
+                        n_clicks=0,
+                    ),
+                    html.Div(
+                        id="export-status",
+                        style={
+                            "marginTop": "10px",
+                            "fontsize": "0.9rem",
+                        },
+                    ),
+                ],
+            ),
+            dcc.Download(
+                id="pdf-download",
+            ),
             html.Div(
                 id="layout-container",
                 className="dashboard",
                 children=[
                     dcc.Graph(
-                        id="map", className="panel map", config={"responsive": True}
+                        id="map", 
+                        className="panel map", 
+                        config={
+                            "responsive": True,
+                            "toImageButtonOptions": {
+                                "format": "png",
+                                "filename": "city_map",
+                                "height": 400,
+                                "width": 500,
+                                "scale": 2,
+                            },
+                        },
                     ),
                     dcc.Graph(
                         id="population-chart",
                         className="panel chart",
-                        config={"responsive": True},
+                        config={
+                            "responsive": True,
+                            "toImageButtonOptions": {
+                                "format": "png",
+                                "filename": "city_population_chart",
+                                "height": 400,
+                                "width": 500,
+                                "scale": 2,
+                            },
+                        },
                     ),
                     html.Div(
                         [
