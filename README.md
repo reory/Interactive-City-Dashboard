@@ -110,7 +110,7 @@ This project combines mapping, visualisation, and live information retrieval int
 
 Click below to watch the 1 minute demo:
 
-[▶️ View Demo Video](https://github.com/reory/Interactive-City-Dashboard/releases/download/v0.1.0/Demo.mp4)
+[▶️ View Demo Video](https://github.com/reory/Interactive-City-Dashboard/releases/download/v0.2.0/Demo.mp4)
 
 ---
 
