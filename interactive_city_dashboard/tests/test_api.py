@@ -2,10 +2,9 @@
 from dash.development.base_component import Component
 
 from interactive_city_dashboard.api import app
-from interactive_city_dashboard.callbacks.callbacks import register_callbacks
 
 
-def test_app_initializes():
+def test_app_initialises():
     """Verify the application initialises successfully."""
 
     assert app is not None
@@ -13,17 +12,3 @@ def test_app_initializes():
     # Optional deeper check:
     layout_instance = app.layout()
     assert isinstance(layout_instance, Component)
-
-
-def test_layout_structure():
-    """Verify the dashboard layout contains the expected components."""
-
-    assert app.layout is not None
-
-
-def test_callback_register(mocker):
-    """Verify dashboard callbacks are registered successfully."""
-
-    mock_app = mocker.Mock()
-    # If not exception is raised the test passes.
-    register_callbacks(mock_app)

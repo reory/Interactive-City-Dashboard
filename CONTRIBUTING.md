@@ -39,7 +39,7 @@ If you add new UI components or callbacks, keep them modular and testable.
 
 ### 4. Run the Test Suite
 ```bash
-pytest -q
+uv run pytest
 ```
 
 All tests must pass before submitting a PR.

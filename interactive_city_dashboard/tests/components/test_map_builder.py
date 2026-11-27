@@ -7,6 +7,8 @@ from interactive_city_dashboard.data.populations import populations
 
 @pytest.fixture
 def theme():
+    """Provide a test theme configuration."""
+
     return {"background": "#000000", "panel": "#111111", "text": "#ffffff"}
 
 
@@ -37,7 +39,7 @@ def test_build_map_with_city(theme):
     selected = next(iter(populations.keys()))
     fig = build_map(selected, theme)
 
-    # Should recenter on selected city.
+    # Should recentre on selected city.
     expected_lat = populations[selected]["lat"]
     expected_lon = populations[selected]["lon"]
 

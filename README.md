@@ -3,24 +3,16 @@
   <em>Explore world cities with an interactive map, charts, and live data</em>
 </p>
 
-<p align="center">
+![Last Commit](https://img.shields.io/github/last-commit/reory/interactive_city_dashboard?cacheSeconds=60)
+![Repo Size](https://img.shields.io/github/repo-size/reory/interactive_city_dashboard?cacheSeconds=60)
+![License](https://img.shields.io/badge/License-MIT-green)
 
-  <!-- Python version -->
-  <img src="https://img.shields.io/badge/Python-3.11-blue" alt="Python 3.11">
-
-  <!-- License -->
-  <img src="https://img.shields.io/badge/License-MIT-green" alt="MIT License">
-
-  <!-- Repo size -->
-  <img src="https://img.shields.io/github/repo-size/reory/Interactive-City-Dashboard" alt="Repo Size">
-
-  <!-- Last commit -->
-  <img src="https://img.shields.io/github/last-commit/reory/Interactive-City-Dashboard" alt="Last Commit">
-
-  <!-- Stars -->
-  <img src="https://img.shields.io/github/stars/reory/Interactive-City-Dashboard?style=social" alt="GitHub Stars">
-
-</p>
+![Dash](https://img.shields.io/badge/Dash-1E88E5?style=for-the-badge)
+![Flask](https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white)
+[![Folium](https://img.shields.io/badge/Folium-orange.svg)](https://python-visualization.github.io/folium/)
+![Pandas](https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white)
+![Plotly](https://img.shields.io/badge/Plotly-3F4F75?style=for-the-badge&logo=plotly&logoColor=white)
+[![SQLAlchemy](https://img.shields.io/badge/SQLAlchemy-2.0-red.svg)](https://www.sqlalchemy.org/)
 
 ## 🗺️ Interactive City Map + Population Dashboard
 
@@ -43,12 +35,13 @@ This project demonstrates professional-grade Dash engineering, clean separation 
 - [Solution](#-solution)
 - [Features](#-features)
 - [Demo](#-demo)
+- [Screenshots](#-screenshots)
 - [Project Structure](#-project-structure)
 - [Installation](#-installation)
 - [Running the App](#running-the-app)
-- [Testing](#-testing)
 - [Architecture Principles](#-architecture-principles)
 - [Deployment](#-deployment)
+- [Testing](#-testing)
 - [Roadmap Features](#️-roadmap-features)
 
 ---
@@ -72,7 +65,7 @@ This project combines mapping, visualisation, and live information retrieval int
 ### Interactive Map
 - Click any city to update the dashboard
 - Map auto-centres and highlights the selected city
-- Built with Plotly and Mapbox integration.
+- Interactive map built with Plotly and OpenStreetMap
 
 ### Population Chart
 - Shows population for the selected city
@@ -113,8 +106,10 @@ Click below to watch the 1 minute demo:
 
 ---
 
+## 📸 Screenshots
+
 <details>
-   <summary>📸Screenshots</summary>
+   <summary>click here</summary>
 
 ### Dashboard (Light Mode)
 
@@ -145,6 +140,9 @@ Click below to watch the 1 minute demo:
 
 ## ⚒️ Project Structure
 
+<details>
+  <summary>click here</summary>
+
 ```plaintext
 interactive_city_dashboard/
 │
@@ -174,6 +172,8 @@ interactive_city_dashboard/
     └── test_integration_app.py
 ```
 
+</details>
+
 ---
 
 ## 💻 Installation
@@ -186,13 +186,13 @@ cd Interactive-City-Dashboard
 ### Install Dependencies
 
 ```bash
-pip install -r requirements.txt
+uv sync
 ```
 
 ### Running the App
 
 ```bash
-python api.py
+uv run python api.py
 ```
 
 Then open:
@@ -200,22 +200,11 @@ http://127.0.0.1:8050
 
 ---
 
-## 🧪 Testing
-
-The test suite includes:
-
-- Layout validation tests
-- Callback unit tests
-- Integration tests
-- Dashboard behaviour verification
-
-```bash
-pytest -q
-```
-
----
-
 ## 🏢 Architecture Principles
+
+<details>
+  <summary>click here</summary>
+
 This project follows:
 
 Pure functions:
@@ -238,9 +227,15 @@ Predictable state:
 Test-driven structure:
 - Every major part of the app is validated.
 
+</details>
+
 ---
 
 ## 💻 Deployment
+
+<details>
+  <summary>click here</summary>
+
 This app can be deployed to:
 
 - Heroku
@@ -252,6 +247,23 @@ This app can be deployed to:
 
 ```bash
 server = app.server
+```
+
+</details>
+
+---
+
+## 🧪 Testing
+
+The test suite includes:
+
+- Layout validation tests
+- Callback unit tests
+- Integration tests
+- Dashboard behaviour verification
+
+```bash
+uv run pytest
 ```
 
 ---

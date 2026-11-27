@@ -36,7 +36,7 @@ def build_map(selected_city, theme):
     # Selected city data.
     city = populations[selected_city]
 
-    # Recenter on selected city
+    # Recentre on selected city
     map_fig.update_layout(
         mapbox={"center": {"lat": city["lat"], "lon": city["lon"]}, "zoom": 5}
     )

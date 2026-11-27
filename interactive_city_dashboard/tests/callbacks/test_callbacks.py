@@ -51,7 +51,7 @@ def test_update_dashboard_valid(mocker):
     )
 
     mock_chart = mocker.patch(
-        "interactive_city_dashboard.components.charts.build_chart",
+        "interactive_city_dashboard.callbacks.callbacks.build_chart",
         return_value=Figure(),
     )
 
@@ -63,7 +63,7 @@ def test_update_dashboard_valid(mocker):
 
     mock_map.assert_called_once_with("Paris", mocker.ANY)
 
-    mock_chart.assert_not_called()
+    mock_chart.assert_called_once_with("Paris", mocker.ANY)
 
 
 def test_update_dashboard_no_city():

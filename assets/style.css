@@ -74,12 +74,27 @@ body {
     grid-template-columns: 1fr;
 }
 
+.dashboard.layout-sidebar {
+    grid-template-columns: 2fr 2fr 300px;
+}
+
 .dashboard.layout-wide {
     grid-template-columns: 3fr 1fr;
 }
 
 .dashboard.layout-chart {
     grid-template-columns: 1fr 2fr;
+}
+
+.dashboard.layout-minimal {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.dashboard.layout-pro {
+    grid-template-columns: 2fr 1fr 1fr;
 }
 
 /* Panels */
@@ -144,7 +159,10 @@ body {
 @media (max-width: 900px) {
     .dashboard.layout-side,
     .dashboard.layout-wide,
-    .dashboard.layout-chart {
+    .dashboard.layout-chart,
+    .dashboard.layout-sidebar,
+    .dashboard.layout-minimal,
+    .dashboard.layout-pro {
         grid-template-columns: 1fr;
     }
 }

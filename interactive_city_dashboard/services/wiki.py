@@ -7,6 +7,8 @@ HEADERS = {
 
 WIKI_API = "https://en.wikipedia.org/w/api.php"
 
+ERROR_MESSAGE = "Could not load Wikipedia summary."
+
 def safe_get(url, params):
     """Wrapper around requests.get with headers + error handling."""
 
@@ -33,7 +35,7 @@ def get_wiki_summary(city_name):
 
         response = safe_get(WIKI_API, params)
         if not response:
-            return "Could not load wikipedia summary."
+            return ERROR_MESSAGE
 
         # Extract the summary text
         data = response.json()
@@ -54,16 +56,16 @@ def get_wiki_summary(city_name):
 
         search_response = safe_get(WIKI_API, search_params)
         if not search_response:
-            return "Could not load wikipedia summary."
+            return ERROR_MESSAGE
         try:
             search_data = search_response.json()
         except ValueError:
-            return "Could not load Wikipedia summary"
+            return ERROR_MESSAGE
         
         search_results = search_data.get("query", {}).get("search", [])
     
         if not search_results:
-            return "No wikipedia summary available."
+            return ERROR_MESSAGE
         
         # Take the first search results title
         best_title = search_results[0]["title"]
@@ -72,12 +74,12 @@ def get_wiki_summary(city_name):
         params["titles"] = best_title
         response = safe_get(WIKI_API, params)
         if not response:
-            return "Could not load wikipedia summary."
+            return ERROR_MESSAGE
         
         try:
             data = response.json()
         except ValueError:
-            return "Could not load Wikipeadia summary."
+            return ERROR_MESSAGE
         
         pages = data.get("query", {}).get("pages", {})
 
@@ -86,7 +88,7 @@ def get_wiki_summary(city_name):
             if extract:
                 return extract   
         
-        return "No wikipedia summary available."
+        return ERROR_MESSAGE
     
     except requests.exceptions.RequestException:
-        return "Could not load Wikipedia summary."
+        return ERROR_MESSAGE
