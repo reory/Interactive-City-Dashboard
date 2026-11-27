@@ -3,8 +3,8 @@
   <em>Explore world cities with an interactive map, charts, and live data</em>
 </p>
 
-![Last Commit](https://img.shields.io/github/last-commit/reory/interactive_city_dashboard?cacheSeconds=60)
-![Repo Size](https://img.shields.io/github/repo-size/reory/interactive_city_dashboard?cacheSeconds=60)
+![Last Commit](https://img.shields.io/github/last-commit/reory/Interactive_City_Dashboard?cacheSeconds=60)
+![Repo Size](https://img.shields.io/github/repo-size/reory/Interactive_City_Dashboard?cacheSeconds=60)
 ![License](https://img.shields.io/badge/License-MIT-green)
 
 ![Dash](https://img.shields.io/badge/Dash-1E88E5?style=for-the-badge)
